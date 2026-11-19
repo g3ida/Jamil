@@ -1,0 +1,9 @@
+Jamil
+Its line tracing follows the baseline segmenter of Kraken (https://github.com/mittagessen/kraken),
+Copyright 2015 Benjamin Kiessling and contributors, licensed under the Apache License 2.0.
+
+The post-processing in src/ follows kraken/lib/segmentation.py and
+kraken/lib/vgsl/spred.py of Kraken 7.1 stage by stage. It also reproduces
+behaviour of scikit-image (ridge filter, thinning, minimum-cost paths, polygon
+approximation; BSD 3-Clause) and SciPy (Gaussian filters; BSD 3-Clause), which
+Kraken calls for those stages.

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["maturin>=1.7,<2"]
+build-backend = "maturin"
+
+[project]
+name = "jamil"
+version = "0.1.0"
+description = "Fast text line detection for Arabic-script documents, with its own model for manuscripts, newspapers and tables"
+license = "Apache-2.0"
+requires-python = ">=3.9"
+
+# The network runs in ONNX Runtime, found at run time: either of these
+# brings one, or ORT_DYLIB_PATH names another.
+[project.optional-dependencies]
+gpu = ["onnxruntime-gpu"]
+cpu = ["onnxruntime"]
+
+[tool.maturin]
+module-name = "jamil"

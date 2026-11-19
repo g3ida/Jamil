@@ -1,0 +1,16 @@
+[package]
+name = "jamil-py"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Jamil as a Python module: text line detection for Arabic-script documents"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# Under another name: the Python module is called `jamil` too.
+jamil_rs = { package = "jamil", path = ".." }
+# One build for every Python from 3.9 on.
+pyo3 = { version = "0.30", features = ["extension-module", "abi3-py39"] }

@@ -1,0 +1,4 @@
+# The ridge filter is nine billion multiply-adds a page: it wants the widest
+# vectors this machine has. A build meant to run elsewhere should drop this.
+[build]
+rustflags = ["-C", "target-cpu=native"]

@@ -1,0 +1,27 @@
+[package]
+name = "jamil"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Fast text line detection for Arabic-script documents, with its own model for manuscripts, newspapers and tables"
+
+# The Python module is a crate of its own, so that building the detector
+# needs no Python.
+[workspace]
+members = [".", "python"]
+default-members = ["."]
+
+[dependencies]
+i_overlay = "9.2.0"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg"] }
+ort = { version = "=2.0.0-rc.10", default-features = false, features = ["load-dynamic", "cuda", "std"] }
+rayon = "1"
+# Numbers read back to the bit they were written from: without this a scale
+# such as 1978/1318 comes back one unit in the last place off, and a point
+# that scales to exactly 989 lands on 988.
+serde_json = { version = "1", features = ["float_roundtrip", "preserve_order"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

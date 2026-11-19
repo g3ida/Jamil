@@ -1,0 +1,13 @@
+/target
+/testdata
+__pycache__/
+*.onnx
+# … but for the network Jamil carries, built into the program.
+!models/*.onnx
+# The Python module, once built and copied beside its tests.
+python/*.so
+
+# Training runs and what they write.
+train/runs/
+train/__pycache__/
+*.pt
